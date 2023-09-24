@@ -1,3 +1,5 @@
+backend/todo/db.sqlite3
+
 # dependencies
 frontend/todo/node_modules
 frontend/todo/.pnp
@@ -21,5 +23,9 @@ yarn-debug.log*
 yarn-error.log*
 
 backend/todovenv
+
+
+./backend/todo/db.sqlite3
+./backend/todo/main/__pycache__
 
 
