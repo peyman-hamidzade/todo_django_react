@@ -6,6 +6,7 @@ function App() {
   const [ todos, setTodos ] = useState([]);
   const [ newTodo, setNewTodo ] = useState('');
 
+  // read data from databse on component miunt
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/api/todos/')
     .then(response => {
@@ -16,10 +17,14 @@ function App() {
     });
   },[]);
 
+
+  // Update newTodo state on input change
   const handleInputChange = (e) => {
     setNewTodo(e.target.value)
   };
 
+
+  // form submission to add new todo
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -40,6 +45,8 @@ function App() {
     }
   };
 
+
+  // Handle toggling todo completion status
   const handleCompleted = (id) => {
     const updateTodos = todos.map(todo => 
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
@@ -55,6 +62,8 @@ function App() {
       });
   };
 
+
+  // deleting a todo from database 
   const handleDelete = (id) => {
     
     const upadatedTodos = todos.filter(todo => todo.id !== id);
@@ -65,6 +74,8 @@ function App() {
       console.error("Error deleting todo:", error)
     })
   };
+
+
 
   return (
     <div className="todo-container">
